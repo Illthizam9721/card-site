@@ -25,10 +25,13 @@ jobs:
         continue-on-error: true
         run: npm list
 
-      
+      - name: install npm
+        run: npm i
+        with:
+          cache: cache-npm 
       - name: process run-script
         run: |
-            cd frontend && npm install
+            cd frontend && ls -l
             
 
 
