@@ -26,9 +26,8 @@ jobs:
         run: npm list
 
       - name: install npm
-        run: npm i
-        with:
-          cache: cache-npm 
+        run: npm install
+        
       - name: process run-script
         run: |
             cd frontend && ls -l
