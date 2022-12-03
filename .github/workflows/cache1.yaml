@@ -31,7 +31,7 @@ jobs:
       - name: process run-script
         run: |
             cd frontend && npm install
-            node server.js
+            
 
 
      
