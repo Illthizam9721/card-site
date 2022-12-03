@@ -28,8 +28,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build
-        run: npm build --if-present
+      - name: process run-script
+        run: |
+            cd frontend && npm install
+            node server.js
 
-      - name: Test
-        run: npm test
+
+     
