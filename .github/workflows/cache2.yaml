@@ -21,10 +21,8 @@ jobs:
 
       - if: steps.npm-cache-dir.outputs.cache-hit != 'true' 
         name: install npm
-        with:
-          cache: npm-cache-dir
-          run: |
-            npm install
+        run: |
+            npm install --save
 
 
       #- name: process run-script
