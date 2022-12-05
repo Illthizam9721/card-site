@@ -15,7 +15,10 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        node-version: [12.x,14.x]
+        
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -30,13 +33,20 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-        
-      - uses: actions/setup-node@v3
+    
+      - name: cache node modules   
+        uses: actions/cache@v3
+        with: 
+            path: node_modules
+            key: ${{ runner.os }}-node-${{ hashfiles ('**/package-lock.json') }}
+            restore-keys: |
+                ${{ runner.os }}-node-
+      
+      - name: use node js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
-          node-version: 12.x
-          cache: npm
-        
-      - name: install npm
+          node-version: ${{ matrix.node-version }}
+      
+      - name: install npm and test
         run: |
-          cd /home/runner/.npm 
           npm install
