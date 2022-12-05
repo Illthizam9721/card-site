@@ -37,4 +37,6 @@ jobs:
           cache: npm
         
       - name: install npm
-        run: /home/runner/.npm install
+        run: |
+          cd /home/runner/.npm 
+          npm install
