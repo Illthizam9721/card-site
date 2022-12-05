@@ -18,10 +18,10 @@ jobs:
           restore-keys: |
                   ${{ runner.os }}-node-
           
-
-      - if: steps.npm-cache-dir.outputs.cache-hit != 'true' 
-        name: install npm
-        run: |
-             npm install 
-
+      - name: use node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 12.x
+      - name: npm install 
+        run: npm install
      
