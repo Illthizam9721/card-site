@@ -22,7 +22,7 @@ jobs:
       - if: steps.npm-cache-dir.outputs.cache-hit != 'true' 
         name: install npm
         run: |
-             npm-cache install 
+             npm install 
 
       #- name: process run-script
        # run: |
