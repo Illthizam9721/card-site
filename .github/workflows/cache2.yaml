@@ -24,7 +24,7 @@ jobs:
         run: |
             #cd /home/runner/work/card-site/card-site/node_modules
             #ls -l
-            sh npm-cache install 
+             npm-cache-dir install 
 
       #- name: process run-script
        # run: |
