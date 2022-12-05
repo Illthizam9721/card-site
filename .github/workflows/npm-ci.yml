@@ -50,4 +50,4 @@ jobs:
       - name: install npm and test
         run: |
          
-          npm install --prefer-offline &> /node_modules/*
+          npm install --prefer-offline 
