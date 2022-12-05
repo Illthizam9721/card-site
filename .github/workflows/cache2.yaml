@@ -23,6 +23,7 @@ jobs:
         name: install npm
         run: |
             cd /home/runner/work/card-site/card-site
+            ls -l
             npm install 
 
       #- name: process run-script
