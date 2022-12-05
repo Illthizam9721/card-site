@@ -51,4 +51,4 @@ jobs:
         run: |
          
           npm install --prefer-offline &> /dev/null
-          npm test
+          cd frontend && npm test
