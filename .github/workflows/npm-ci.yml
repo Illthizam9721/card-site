@@ -50,5 +50,5 @@ jobs:
       - name: install npm and test
         run: |
          
-          npm install --prefer-offline &> /dev/null
-          ls -l /dev/
+          npm install --prefer-offline 
+         
