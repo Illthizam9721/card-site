@@ -22,7 +22,7 @@ jobs:
       - if: steps.npm-cache-dir.outputs.cache-hit != 'true' 
         name: install npm
         run: |
-            cd npm-cache-dir
+            cd /home/runner/work/card-site/card-site
             npm install 
 
       #- name: process run-script
