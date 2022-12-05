@@ -22,9 +22,9 @@ jobs:
       - if: steps.npm-cache-dir.outputs.cache-hit != 'true' 
         name: install npm
         run: |
-            cd /home/runner/work/card-site/card-site/node_modules
-            ls -l
-            npm install 
+            #cd /home/runner/work/card-site/card-site/node_modules
+            #ls -l
+            npm-cache install 
 
       #- name: process run-script
        # run: |
