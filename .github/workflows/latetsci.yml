@@ -20,7 +20,12 @@ jobs:
         node-version: ${{ env.node_version }}
         
     - uses: c-hive/gha-npm-cache@v1
-    - name: Install JS dependencies
-      run: ls package-lock.json && npm install 
+   # - name: Install JS dependencies
+    #  run: ls package-lock.json && npm install 
     - name: list package
       run: ls package-lock.json 
+    - name: install npm run and test
+      run: |
+          cd frontend
+          npm test
+          npm run build
