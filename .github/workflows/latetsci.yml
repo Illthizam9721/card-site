@@ -26,6 +26,7 @@ jobs:
       run: ls package-lock.json 
     - name: install npm run and test
       run: |
+          npm install --offline
           cd frontend
           npm test
           npm run build
