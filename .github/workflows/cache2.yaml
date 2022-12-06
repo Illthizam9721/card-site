@@ -27,9 +27,8 @@ jobs:
         with:
           node-version: 12.x
           cache: npm
-      - name: npm install 
-        run: npm install
-        
-      - name: list files
-        run: ls -l
      
+   
+      - name: Install JS dependencies
+        run: ls package-lock.json && npm install 
+   
