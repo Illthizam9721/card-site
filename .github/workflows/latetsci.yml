@@ -1,0 +1,25 @@
+name: CI4-latest-06/12
+
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+
+env:
+  node_version: "12.x"
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.node_version }}
+    - uses: c-hive/gha-npm-cache@v1
+    - name: Install JS dependencies
+      run: ls package-lock.json && npm install 
+    - name: Lint
+      run: ls package-lock.json && npm run lint 
