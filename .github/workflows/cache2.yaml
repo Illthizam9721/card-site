@@ -30,5 +30,6 @@ jobs:
      
    
       - name: Install JS dependencies
+        if: steps.npm_cache_id.outputs.cache-hit != 'true'
         run: ls package-lock.json && npm install 
    
