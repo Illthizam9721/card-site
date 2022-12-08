@@ -9,5 +9,5 @@ jobs:
         with:
           working-directory: card-site
           useRollingCache: true
-      - run: npm t
-        working-directory: examples/rolling-cache
+      
+        
