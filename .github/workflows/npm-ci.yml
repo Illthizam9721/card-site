@@ -34,20 +34,13 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           
-      - name: Get yarn cache directory path
-        id: npm-cache-dir
-        run: echo "::set-output name=dir::$(npm config get cache)"
+      - name: Get npm cache directory
+        id: npm-cache
+        shell: bash
+        run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
         
-      - name: Cache npm dependencies
-        uses: actions/cache@v2
-        with:
-          path: ${{ steps.npm-cache-dir.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
       - name: 'Install the dependencies'
-        if: steps.cache-npm-dir.outputs.cache-hit != 'true'
+        if: steps.npm-cache.outputs.cache-hit != 'true'
         run: |
           npm cache verify
           npm ci
