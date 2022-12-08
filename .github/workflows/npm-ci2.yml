@@ -7,11 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
+    - run: cd frontend
 
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        path: /frontend
+        
         node-version: '16'
         cache: 'npm'
 
