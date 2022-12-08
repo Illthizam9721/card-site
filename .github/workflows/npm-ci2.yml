@@ -21,6 +21,6 @@ jobs:
     - name: Install JS dependencies
       run: |
         npm i
-        cd frontend
+       
         npm run build --if-present
     
