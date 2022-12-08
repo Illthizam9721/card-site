@@ -44,6 +44,8 @@ jobs:
                 ${{ runner.os }}-node-
        
       - name: 'Install the dependencies'
-        run: npm ci
+        run: |
+          npm cache verify
+          npm ci
        
       
