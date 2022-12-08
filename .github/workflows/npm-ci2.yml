@@ -9,6 +9,8 @@ jobs:
     - uses: actions/checkout@v1
 
     - uses: c-hive/gha-npm-cache@v1
+      with:
+        path: ~/.npm
       # with:
         # directory: server # Optional, specify the folder of package-lock.json if not in the root directory
 
