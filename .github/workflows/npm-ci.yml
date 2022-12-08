@@ -37,13 +37,13 @@ jobs:
       - name: cache node modules   
         uses: actions/cache@v3
         with: 
-            path: node_modules
+            path: /home/runner/node_modules
             key: ${{ runner.os }}-node-${{ hashfiles ('**/package-lock.json') }}
+            cacheHitVar: CACHE_RESTORED
             restore-keys: |
                 ${{ runner.os }}-node-
-                
-      - run: |
-            npm cache clean --force
-            npm i
-            
+       
+      - name: 'Install the dependencies'
+        run: npm ci
+       
       
