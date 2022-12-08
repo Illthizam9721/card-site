@@ -19,5 +19,7 @@ jobs:
         # directory: server # Optional, specify the folder of package-lock.json if not in the root directory
 
     - name: Install JS dependencies
-      run: npm install
+      run: |
+        cd frontend
+        npm test
     
