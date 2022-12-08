@@ -42,13 +42,11 @@ jobs:
             restore-keys: |
                 ${{ runner.os }}-node-
       
-      - name: use node js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+      - uses: actions/cache@v2
         with:
-          node-version: ${{ matrix.node-version }}
-      
-      - name: install npm and test
-        run: |
-         
-          npm install --prefer-offline 
-         
+         path: node_modules
+         key:  cache-node-module-${{ github.sha)}}
+         restore-keys: /
+          cache-cache-
+
+      -  run: npm i
