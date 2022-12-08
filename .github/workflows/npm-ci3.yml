@@ -1,0 +1,27 @@
+name: Cache build assests
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+     - uses: actions/checkout@v2
+     - uses: actions/cache@v2
+       with:
+        path: .cache
+        key:  cache-cache-${{ github.sha}}
+        restore-keys: /
+          cache-cache-
+
+     - uses: actions/cache@v2
+       with:
+        path: node_modules
+        key:  cache-node-module-${{ github.sha)}}
+        restore-keys: /
+          cache-cache-
+
+     -  run: npm i
+    
+
+     
