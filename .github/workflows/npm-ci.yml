@@ -41,5 +41,9 @@ jobs:
             key: ${{ runner.os }}-node-${{ hashfiles ('**/package-lock.json') }}
             restore-keys: |
                 ${{ runner.os }}-node-
-      
+                
+      - run: |
+            npm cache clean --force
+            npm i
+            
       
