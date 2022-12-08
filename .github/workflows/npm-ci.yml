@@ -42,11 +42,4 @@ jobs:
             restore-keys: |
                 ${{ runner.os }}-node-
       
-      - uses: actions/cache@v2
-        with:
-         path: node_modules
-         key:  cache-node-module-${{ github.sha)}}
-         restore-keys: /
-          cache-cache-
-
-      -  run: npm i
+      
