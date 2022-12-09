@@ -33,13 +33,16 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-    
-      - name: cache node modules   
-        uses: actions/cache@v3
-        with: 
-            path: node_modules
-            key: ${{ runner.os }}-node-${{ hashfiles ('**/package-lock.json') }}
-            restore-keys: |
-                ${{ runner.os }}-node-
-      
+          
+      - name: Get npm cache directory
+        id: npm-cache
+        shell: bash
+        run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
+        
+      - name: 'Install the dependencies'
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: |
+          npm cache verify
+          npm ci
+       
       
