@@ -4,8 +4,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-  prepare-npm-cache:
-    runs-on: ubuntu-latest
+  
 
     steps:
       - uses: actions/checkout@v2
