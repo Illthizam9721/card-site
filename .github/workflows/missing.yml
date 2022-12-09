@@ -1,0 +1,27 @@
+name: Caching 4lt
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+  prepare-npm-cache:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 12.22.0
+      - name: Cache node modules
+        uses: actions/cache@v2
+        id: npm_cache_id
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-cache-
+            ${{ runner.os }}-
+
+      - name: Install Dependencies
+        if: steps.npm_cache_id.outputs.cache-hit != 'true'
+        run: npm ci
