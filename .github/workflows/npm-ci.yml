@@ -34,11 +34,11 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: ${{matrix.node-version}}
       - name: Cache node modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: npm_cache_id
         with:
           path: node_modules
