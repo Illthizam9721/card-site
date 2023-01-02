@@ -15,8 +15,10 @@ jobs:
 
       
       - name: print date
+        run: npm i
         #run: |
-        #  echo $DEBUG
+          #echo $DEBUG
         env:
           DEBUG: ${{ steps.version.outputs.builddate }}-DEBUG
-          RELEASE: ${{  steps.version.outputs.builddate }}-RELEASE
+          RELEASE: ${{  steps.version.outputs.builddate }}-RELEASE 
+    
